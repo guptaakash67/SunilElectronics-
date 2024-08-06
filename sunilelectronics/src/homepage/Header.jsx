@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import "../components/Navigation.jsx";
+import "../navigation/Navigation.jsx";
 
 export  const Header = () => {
     // return (
