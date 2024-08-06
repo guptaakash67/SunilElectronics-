@@ -8,7 +8,7 @@ import { HomePage } from "./homepage/HomePage.jsx" // Adjusted import path
 import { Footer } from "./homepage/Footer.jsx"
 // import { Services } from "./services/Services.jsx"
 import { Contact } from "./contact/Contact.jsx"
-
+import { Services } from "./services/Services.jsx"
 
 function App() {
     return (
@@ -21,7 +21,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         {/* <Route path="/about" element={<About />} /> */}
-                        {/* <Route path="/services" element={<Services />} /> */}
+                        <Route path="/services" element={<Services />} />
                         <Route path="/contact" element={<Contact />} />
                     </Routes>
                 </main>
