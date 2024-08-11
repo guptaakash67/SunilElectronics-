@@ -1,22 +1,26 @@
+/* Common styles for the navbar */
 .navbar {
-    background-color: #333;
-    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
     color: white;
+    position: relative;
+    z-index: 1000;
 }
 
-.logo {
+.navbar-logo {
     font-size: 1.5em;
     font-weight: bold;
 }
 
+/* Horizontal navigation for desktop */
 .navbar-list {
-    list-style: none;
     display: flex;
-    margin: 0;
+    list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .navbar-item {
@@ -26,19 +30,71 @@
 .navbar-item a {
     color: white;
     text-decoration: none;
-    padding: 5px 10px;
-    transition: background-color 0.3s ease;
+    font-size: 1.2em;
 }
 
 .navbar-item a:hover {
-    background-color: #555;
+    text-decoration: underline;
 }
 
-.link-content {
-    display: flex;
-    align-items: center;
+/* Styles for the hamburger menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 25px;
+    height: 20px;
+    justify-content: space-between;
+    background: none;
+    border: none;
+    outline: none;
 }
 
-.icon {
-    margin-right: 5px;
+/* Hamburger menu bar styles */
+.menu-toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 3px;
+}
+
+/* Open state for the toggle button */
+.menu-toggle.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.open .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.open .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #333;
+        flex-direction: column;
+        padding: 10px 0;
+        z-index: 999;
+    }
+
+    .navbar-list.open {
+        display: flex;
+    }
+
+    .navbar-item {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
 }

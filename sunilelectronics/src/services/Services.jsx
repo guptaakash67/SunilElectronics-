@@ -10,12 +10,12 @@ export const servicesData = [
     {
         title: 'LED Repair',
         description: 'Expert LED TV repair services to fix any issues with your LED TV.',
-        icon: '💡'
+        icon: '📺', // Represents a television
     },
     {
-        title: 'LCD Repair',
-        description: 'High-quality LCD TV repair services for all brands and models.',
-        icon: '📱'
+        title: 'LCD TV Repair',
+        description: 'Professional LCD TV repair services to restore your TV to perfect working condition.',
+        icon: '📺',
     },
     {
         title: 'Speaker Repair',

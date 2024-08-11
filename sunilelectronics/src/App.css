@@ -1,42 +1,100 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Blur effect for main content when menu is open */
+.main-content.blurred {
+  filter: blur(5px);
+  transition: filter 0.3s ease;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.main-content {
+  transition: filter 0.3s ease;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Navigation bar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+  color: white;
+  position: relative;
+  z-index: 1000; /* Ensure it stays above the blurred content */
+}
+
+/* Menu toggle button styles */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 25px;
+  height: 20px;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.menu-toggle .bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 3px;
+}
+
+/* Transform bars into an 'X' when menu is open */
+.menu-toggle.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.open .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar-list {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: #333;
+      flex-direction: column;
+      padding: 10px 0;
+      z-index: 999; /* Ensure it stays above the blurred content */
   }
-  to {
-    transform: rotate(360deg);
+
+  .navbar-list.open {
+      display: flex;
+  }
+
+  .navbar-item {
+      margin: 10px 0;
+      text-align: center;
+  }
+
+  .menu-toggle {
+      display: flex;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Removing focus/active styles for links */
+.navbar-item a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.navbar-item a:focus,
+.navbar-item a:active {
+  outline: none;
+  border: none;
+  background: transparent;
 }
